@@ -335,7 +335,6 @@ export default {
     height: 100%;
   }
   .wheel-base-indicator:before {
-    /* &-indicator:before { */
     content: "";
     position: absolute;
     z-index: 1;
