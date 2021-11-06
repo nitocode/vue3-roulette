@@ -65,7 +65,7 @@
 
 <script>
 export default {
-  name: "FortuneWheel",
+  name: "Roulette",
   emits: ["wheelStart", "wheelEnd"],
   props: {
     items: {

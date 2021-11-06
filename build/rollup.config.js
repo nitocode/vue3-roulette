@@ -95,7 +95,7 @@ if (!argv.format || argv.format === 'es') {
     input: 'src/entry.esm.js',
     external,
     output: {
-      file: 'dist/vue3-fortune-wheel.esm.js',
+      file: 'dist/vue3-roulette.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -127,9 +127,9 @@ if (!argv.format || argv.format === 'cjs') {
     external,
     output: {
       compact: true,
-      file: 'dist/vue3-fortune-wheel.ssr.js',
+      file: 'dist/vue3-roulette.ssr.js',
       format: 'cjs',
-      name: 'Vue3FortuneWheel',
+      name: 'Vue3Roulette',
       exports: 'auto',
       globals,
     },
@@ -150,9 +150,9 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/vue3-fortune-wheel.min.js',
+      file: 'dist/vue3-roulette.min.js',
       format: 'iife',
-      name: 'Vue3FortuneWheel',
+      name: 'Vue3Roulette',
       exports: 'auto',
       globals,
     },

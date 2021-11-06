@@ -1,11 +1,11 @@
 {
-  "name": "vue3-fortune-wheel",
+  "name": "vue3-roulette",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/vue3-fortune-wheel.ssr.js",
-  "browser": "dist/vue3-fortune-wheel.esm.js",
-  "module": "dist/vue3-fortune-wheel.esm.js",
-  "unpkg": "dist/vue3-fortune-wheel.min.js",
+  "main": "dist/vue3-roulette.ssr.js",
+  "browser": "dist/vue3-roulette.esm.js",
+  "module": "dist/vue3-roulette.esm.js",
+  "unpkg": "dist/vue3-roulette.min.js",
   "files": [
     "dist/*",
     "src/**/*.vue"

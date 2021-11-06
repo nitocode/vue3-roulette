@@ -3,7 +3,7 @@
 import * as components from '@/lib-components/index';
 
 // install function executed by Vue.use()
-const install = function installVue3FortuneWheel(app) {
+const install = function installVue3Roulette(app) {
   Object.entries(components).forEach(([componentName, component]) => {
     app.component(componentName, component);
   });

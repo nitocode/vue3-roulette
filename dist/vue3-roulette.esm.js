@@ -1,7 +1,7 @@
 import { openBlock, createElementBlock, normalizeClass, normalizeStyle, createElementVNode, renderSlot, createCommentVNode, Fragment, renderList } from 'vue';
 
 var script = {
-  name: "FortuneWheel",
+  name: "Roulette",
   emits: ["wheelStart", "wheelEnd"],
   props: {
     items: {
@@ -279,16 +279,16 @@ script.render = render;
 
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  FortuneWheel: script
+  Roulette: script
 });
 
 // Import vue components
 
-const install = function installVue3FortuneWheel(app) {
+const install = function installVue3Roulette(app) {
   Object.entries(components).forEach(_ref => {
     let [componentName, component] = _ref;
     app.component(componentName, component);
   });
 }; // Create module definition for Vue.use()
 
-export { script as FortuneWheel, install as default };
+export { script as Roulette, install as default };

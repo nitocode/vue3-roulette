@@ -1,12 +1,12 @@
 <script>
 import { defineComponent } from 'vue';
 // Uncomment import and local "components" registration if library is not registered globally.
-import { FortuneWheel } from '@/entry.esm';
+import { Roulette } from '@/entry.esm';
 
 export default defineComponent({
   name: 'ServeDev',
   components: {
-   FortuneWheel,
+   Roulette,
   },
   methods: {
     launchWheel() {
@@ -40,7 +40,7 @@ export default defineComponent({
 
 <template>
   <div id="app">
-    <FortuneWheel 
+    <Roulette 
       ref="wheel"
       :items="items"
       @click="launchWheel"
