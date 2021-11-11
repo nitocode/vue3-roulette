@@ -64,7 +64,8 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+export default defineComponent ({
   name: "Roulette",
   emits: ["wheelStart", "wheelEnd"],
   props: {
@@ -246,7 +247,7 @@ export default {
       this.$emit("wheel-start");
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

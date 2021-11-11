@@ -1,18 +1,26 @@
-<script>
-import { defineComponent } from 'vue';
-// Uncomment import and local "components" registration if library is not registered globally.
-import { Roulette } from '@/entry.esm';
+<template>
+  <div class="container">
+    <h1>Vue3 Roulette</h1>
+    
+    <Roulette
+      ref="wheel"
+      @click="launchWheel"
+      :items="items"
+    >
+    </Roulette>
+  </div>
+</template>
 
-export default defineComponent({
-  name: 'ServeDev',
+<script>
+import Roulette from '../src/components/Roulette.vue'
+
+export default {
+  name: 'Container',
+
   components: {
-   Roulette,
+    Roulette,
   },
-  methods: {
-    launchWheel() {
-      this.$refs.wheel.launchWheel();
-    },
-  },
+
   data () {
     return {
       items: [
@@ -34,16 +42,23 @@ export default defineComponent({
         { id: 6, name: "Grape", htmlContent: "Grape", background: "" },
       ]
     }
+  },
+
+  methods: {
+    launchWheel() {
+      this.$refs.wheel.launchWheel();
+    },
   }
-});
+}
 </script>
 
-<template>
-  <div id="app">
-    <Roulette 
-      ref="wheel"
-      :items="items"
-      @click="launchWheel"
-    />
-  </div>
-</template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+html, body {
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+</style>
