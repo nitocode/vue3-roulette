@@ -2,7 +2,7 @@
 
 > A flexible fortune wheel for vue3
 
--- 
+![vue3-roulette gif](/public/vue3-roulette.gif)
 
 ## Demo
 
@@ -15,8 +15,6 @@ WIP
 `npm i --save vue3-roulette`
 
 ## Usage
-
-### ES6 Modules / CommonJS
 
 #### main.js
 ```js
@@ -52,6 +50,30 @@ function launchWheel (){
 </script>
 ```
 
+## Events API 
+
+`wheel-start` and `wheel-end` which provide the item selected
+
+```html
+<Roulette 
+  ref="wheel" :items="items" @click="launchWheel" 
+  @wheel-start="wheelStartedCallback"
+  @wheel-end="wheelEndedCallback"
+/>
+```
+
+## Methods API
+
+Composition API
+```javascript
+this.$refs.wheel.launchWheel();
+this.$refs.wheel.reset();
+```
+Option API
+```javascript
+wheel.value.launchWheel();
+wheel.value.reset();
+```
 
 ## Props API (Wheel)
 
@@ -80,6 +102,19 @@ function launchWheel (){
 | base-display-shadow    | Boolean | no     | false          |               |  |
 | base-display-indicator    | Boolean | no     | false          |               |  |
 | base-background    | String | no     | ""          | rgb(100,0,0) \| red \| #FF0000              |  |
+
+
+## Slots
+
+You can use your own html for the wheel base
+
+```html
+<Roulette ref="wheel" :items="items" @click="launchWheel">
+  <template #baseContent>
+    <div v-html="yourHtml"></div>
+  </template>
+</Roulette>
+```
 
 ## Contribution
 
