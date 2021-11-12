@@ -1,6 +1,6 @@
 {
   "name": "vue3-roulette",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/vue3-roulette.js",
   "browser": "dist/vue3-roulette.esm.js",
   "module": "dist/vue3-roulette.esm.js",
