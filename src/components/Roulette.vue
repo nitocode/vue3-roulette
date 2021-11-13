@@ -59,7 +59,6 @@
         </div>
       </div>
     </div>
-    <!-- <p v-if="itemSelected">The result will be : {{ itemSelected.name }}</p> -->
   </div>
 </template>
 
