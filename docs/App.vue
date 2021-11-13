@@ -1,54 +1,19 @@
 <template>
-  <div class="container">
-    <h1>Vue3 Roulette</h1>
-    
-    <Roulette
-      ref="wheel"
-      @click="launchWheel"
-      :items="items"
-    >
-    </Roulette>
+  <div>
+    <Navbar />
+    <div class="container mx-auto my-14 px-4">
+      <router-view></router-view>
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
-import Roulette from '../src/components/Roulette.vue'
-
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 export default {
-  name: 'Container',
-
-  components: {
-    Roulette,
-  },
-
-  data () {
-    return {
-      items: [
-        { id: 1, name: "Banana", htmlContent: "Banana", background: "" },
-        { id: 2, name: "Apple", htmlContent: "Apple", background: "" },
-        {
-          id: 3,
-          name: "Orange and Purple",
-          htmlContent: "Orange<br>and Purple",
-          background: "",
-        },
-        { id: 4, name: "Cherry", htmlContent: "Cherry", background: "" },
-        {
-          id: 5,
-          name: "Strawberry",
-          htmlContent: "Strawberry",
-          background: "",
-        },
-        { id: 6, name: "Grape", htmlContent: "Grape", background: "" },
-      ]
-    }
-  },
-
-  methods: {
-    launchWheel() {
-      this.$refs.wheel.launchWheel();
-    },
-  }
+  name: "Container",
+  components: { Navbar, Footer }
 }
 </script>
 
@@ -60,5 +25,6 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  overflow-x: hidden;
 }
 </style>
