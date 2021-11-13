@@ -1,43 +1,68 @@
 <template>
   <div>
-    <Roulette
-      ref="wheel"
-      @click="launchWheel"
-      :items="items"
-      :first-item-index="firstItemIndex"
-      :centered-indicator="wheelSettings.centeredIndicator"
-      :indicator-position="wheelSettings.indicatorPosition"
-      :size="wheelSettings.size"
-      :display-Shadow="wheelSettings.displayShadow"
-      :display-border="wheelSettings.displayBorder"
-      :display-indicator="wheelSettings.displayIndicator"
-      :duration="wheelSettings.duration"
-      :result-variation="wheelSettings.resultVariation"
-      :easing="wheelSettings.easing"
-      @wheel-start="wheelStartedCallback"
-      @wheel-end="wheelEndedCallback"
-      :counter-clockwise="wheelSettings.counterClockwise"
-      :horizontal-content="wheelSettings.horizontalContent"
-      :base-display="wheelSettings.baseDisplay"
-      :base-size="wheelSettings.baseSize"
-      :base-display-indicator="wheelSettings.baseDisplayIndicator"
-      :base-display-shadow="wheelSettings.baseDisplayShadow"
-      :base-background="wheelSettings.baseBackground"
-    >
-      <template #baseContent>
-        <div
-          v-if="wheelSettings.baseHtmlContent"
-          v-html="wheelSettings.baseHtmlContent"
-        ></div>
-      </template>
-    </Roulette>
+
+    <h1 class="text-4xl">Vue3 Roulette</h1>
+    <div class="py-10 relative">
+      <Roulette
+        v-if="wheelActive"
+        ref="wheel"
+        @click="launchWheel"
+        :items="items"
+        :first-item-index="firstItemIndex"
+        :centered-indicator="wheelSettings.centeredIndicator"
+        :indicator-position="wheelSettings.indicatorPosition"
+        :size="wheelSettings.size"
+        :display-Shadow="wheelSettings.displayShadow"
+        :display-border="wheelSettings.displayBorder"
+        :display-indicator="wheelSettings.displayIndicator"
+        :duration="wheelSettings.duration"
+        :result-variation="wheelSettings.resultVariation"
+        :easing="wheelSettings.easing"
+        @wheel-start="wheelStartedCallback"
+        @wheel-end="wheelEndedCallback"
+        :counter-clockwise="wheelSettings.counterClockwise"
+        :horizontal-content="wheelSettings.horizontalContent"
+        :base-display="wheelSettings.baseDisplay"
+        :base-size="wheelSettings.baseSize"
+        :base-display-indicator="wheelSettings.baseDisplayIndicator"
+        :base-display-shadow="wheelSettings.baseDisplayShadow"
+        :base-background="wheelSettings.baseBackground"
+      >
+        <template #baseContent>
+          <div
+            v-if="wheelSettings.baseHtmlContent"
+            v-html="wheelSettings.baseHtmlContent"
+          ></div>
+        </template>
+      </Roulette>
+
+      <div 
+        v-show="result"
+        class="absolute bottom-2 left-1/2 transform -translate-x-1/2"
+      >
+        <button class="btn btn-xs mx-2" @click="onHardReset()">Hard reset</button>
+        <button class="btn btn-xs mx-2" @click="onSoftReset()">Soft reset</button>
+      </div>
+    </div>
+
+    <p class="text-xl text-gray-500 italic mb-10">A customizable and flexible fortune wheel made with vue3</p>
+
+    <div class="tabs tabs-boxed justify-center">
+      <a class="tab" :class="{'tab-active': managerId === 1 }" @click="managerId = 1">Items manager</a> 
+      <a class="tab" :class="{'tab-active': managerId === 2 }" @click="managerId = 2">Wheel manager</a>
+    </div>
+
+    <div class="divider"></div> 
+
     <ItemsManager
-      class="item-manager"
+      v-if="managerId === 1"
+      class="item-manager overflow-scroll lg:overflow-auto"
       :initial-items="items"
       :initial-first-item-index="firstItemIndex"
       @update-items="onSoftReset"
     />
     <WheelManager
+      v-if="managerId === 2"
       :initial-settings="wheelSettings"
       @hard-reset="onHardReset"
     />
@@ -48,6 +73,7 @@
 import ItemsManager from "../components/ItemsManager.vue";
 import WheelManager from "../components/WheelManager.vue";
 import Roulette from "../../src/components/Roulette.vue";
+import wheelData from "../data";
 
 export default {
   name: "Home",
@@ -60,44 +86,10 @@ export default {
 
   data () {
     return {
-      items: [
-        { id: 1, name: "Banana", htmlContent: "Banana", background: "" },
-        { id: 2, name: "Apple", htmlContent: "Apple", background: "" },
-        {
-          id: 3,
-          name: "Orange and Purple",
-          htmlContent: "Orange<br>and Purple",
-          background: "",
-        },
-        { id: 4, name: "Cherry", htmlContent: "Cherry", background: "" },
-        {
-          id: 5,
-          name: "Strawberry",
-          htmlContent: "Strawberry",
-          background: "",
-        },
-        { id: 6, name: "Grape", htmlContent: "Grape", background: "" },
-      ],
-      firstItemIndex: { value: 0 },
-      wheelSettings: {
-        centeredIndicator: true,
-        indicatorPosition: "top",
-        size: 300,
-        displayShadow: true,
-        duration: 5,
-        resultVariation: 70,
-        easing: "bounce",
-        counterClockwise: true,
-        horizontalContent: false,
-        displayBorder: true,
-        displayIndicator: true,
-        baseDisplay: true,
-        baseSize: 100,
-        baseDisplayShadow: true,
-        baseDisplayIndicator: true,
-        baseBackground: "#EEAA33",
-        baseHtmlContent: "Awesome<br>Wheel",
-      }
+      ...wheelData,
+      wheelActive: true,
+      managerId: 1,
+      result: null
     }
   },
 
@@ -110,6 +102,18 @@ export default {
     },
     wheelEndedCallback(resultItem) {
       console.log("wheel ended !", resultItem);
+      this.result = resultItem;
+    },
+    onSoftReset(newItemList) {
+      this.items = newItemList || this.items;
+      this.$refs.wheel.reset();
+    },
+    onHardReset() {
+      this.wheelActive = false;
+      this.result = null;
+      setTimeout(() => {
+        this.wheelActive = true;
+      }, 10);
     },
   }
 }

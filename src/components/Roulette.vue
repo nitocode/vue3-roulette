@@ -402,8 +402,8 @@ export default defineComponent ({
   .content {
     position: absolute;
     left: -100%;
-    width: 195%;
-    height: 195%;
+    width: 200%;
+    height: 200%;
     text-align: center;
     transform: skewY(30deg) rotate(0deg);
     padding-top: 20px;
@@ -411,7 +411,7 @@ export default defineComponent ({
     &.horizontal-content {
       left: initial;
       right: 100%;
-      width: 60%;
+      width: 50%;
       height: 250%;
       text-align: right;
       span {

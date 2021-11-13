@@ -1,20 +1,19 @@
 <template>
-  <div class="container">
-    <h1>Vue3 Roulette</h1>
-    
-
-    <router-link to="/"><button class="btn btn-primary">Home</button></router-link>
-
-    <router-link to="/docs"><button class="btn btn-primary">Docs</button></router-link>
-
-
-    <router-view></router-view>
+  <div>
+    <Navbar />
+    <div class="container mx-auto my-14 px-4">
+      <router-view></router-view>
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 export default {
-  name: 'Container'
+  name: "Container",
+  components: { Navbar, Footer }
 }
 </script>
 
