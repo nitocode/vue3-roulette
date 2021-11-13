@@ -234,7 +234,6 @@ export default defineComponent ({
       const wheelResult = Math.floor(Math.random() * this.items.length + 1);
       const wheelElt = document.querySelector(".wheel");
 
-      console.log("wheelResult", wheelResult);
       this.itemSelected = this.items[wheelResult - 1];
 
       wheelElt.style.transform = `rotate(${
