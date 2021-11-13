@@ -6,6 +6,7 @@
           <th v-if="initialFirstItemIndex != null">First Item</th>
           <th>Name</th>
           <th>Html content</th>
+          <th>Text color</th>
           <th>Background</th>
           <th>Delete</th>
         </tr>
@@ -23,6 +24,7 @@
           </td>
           <td><input class="input input-bordered w-full" type="text" v-model="item.name" /></td>
           <td><textarea class="textarea h-12 textarea-bordered textarea-primary w-full" v-model="item.htmlContent" /></td>
+          <td><input class="input input-bordered w-full" type="text" v-model="item.textColor" /></td>
           <td><input class="input input-bordered w-full" type="text" v-model="item.background" /></td>
           <td class="text-center">
             <button class="btn btn-error btn-outline btn-circle btn-sm" @click="remove(index)">
@@ -38,6 +40,7 @@
           <th v-if="initialFirstItemIndex != null">First Item</th>
           <th>Name</th>
           <th>Html content</th>
+          <th>Text color</th>
           <th>Background</th>
           <th>Delete</th>
         </tr>
@@ -82,7 +85,8 @@ export default {
       this.items.push({
         id: lastItem.id + 1,
         name: "",
-        content: "",
+        htmlContent: "",
+        textColor: "",
         background: "",
       });
     },

@@ -55,7 +55,7 @@
             background: item.background,
           }"
         >
-          <span v-html="item.htmlContent"></span>
+          <span v-html="item.htmlContent" :style="{ color: item.textColor }"></span>
         </div>
       </div>
     </div>

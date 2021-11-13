@@ -1,21 +1,21 @@
 export default {
   items: [
-    { id: 1, name: "Banana", htmlContent: "Banana", background: "" },
-    { id: 2, name: "Apple", htmlContent: "Apple", background: "" },
+    { id: 1, name: "Banana", htmlContent: "Banana", textColor: "", background: "" },
+    { id: 2, name: "Apple", htmlContent: "Apple", textColor: "", background: "" },
     {
       id: 3,
-      name: "Orange and Purple",
-      htmlContent: "Orange<br>and Purple",
-      background: "",
+      name: "Orange",
+      htmlContent: "Orange",
+      textColor: "", background: "",
     },
-    { id: 4, name: "Cherry", htmlContent: "Cherry", background: "" },
+    { id: 4, name: "Cherry", htmlContent: "Cherry", textColor: "", background: "" },
     {
       id: 5,
       name: "Strawberry",
       htmlContent: "Strawberry",
-      background: "",
+      textColor: "", background: "",
     },
-    { id: 6, name: "Grape", htmlContent: "Grape", background: "" },
+    { id: 6, name: "Grape", htmlContent: "Grape", textColor: "", background: "" },
   ],
   firstItemIndex: { value: 0 },
   wheelSettings: {

@@ -38,10 +38,10 @@ Using the [sfc syntax](https://v3.vuejs.org/api/sfc-script-setup.html)
 import { ref } from 'vue'
 const wheel = ref(null);
 const items = [
-  { id: 1, name: "Banana", htmlContent: "Banana", background: "" },
-  { id: 2, name: "Apple", htmlContent: "Apple", background: "" },
-  { id: 3, name: "Orange and Purple", htmlContent: "Orange<br>and Purple", background: "" },
-  { id: 4, name: "Cherry", htmlContent: "Cherry", background: "" },
+  { id: 1, name: "Banana", htmlContent: "Banana", textColor: "", background: "" },
+  { id: 2, name: "Apple", htmlContent: "Apple", textColor: "", background: "" },
+  { id: 3, name: "Orange and Purple", htmlContent: "Orange<br>and Purple", textColor: "", background: "" },
+  { id: 4, name: "Cherry", htmlContent: "Cherry", textColor: "", background: "" },
 ];
 
 function launchWheel (){
