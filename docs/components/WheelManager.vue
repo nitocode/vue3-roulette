@@ -138,50 +138,52 @@
           <input id="base" class="toggle toggle-primary" type="checkbox" v-model="settings.baseDisplay" />
         </label>
       </div>
-      <!-- DISPLAY BASE SHADOW -->          
-      <div class="form-control">
-        <label class="cursor-pointer label">
-          <span class="label-text">Display base shadow</span> 
-          <input id="baseShadow" class="toggle toggle-primary" type="checkbox" v-model="settings.baseDisplayShadow" />
-        </label>
-      </div>
-      <!-- DISPLAY BASE INDICATOR -->
-      <div class="form-control">
-        <label class="cursor-pointer label">
-          <span class="label-text">Display base indicator</span> 
-          <input id="baseIndicator" class="toggle toggle-primary" type="checkbox" v-model="settings.baseDisplayIndicator" />
-        </label>
-      </div>
+      <div :class="{'opacity-50': !settings.baseDisplay}">
+        <!-- DISPLAY BASE SHADOW -->          
+        <div class="form-control">
+          <label class="cursor-pointer label">
+            <span class="label-text">Display base shadow</span> 
+            <input id="baseShadow" class="toggle toggle-primary" type="checkbox" v-model="settings.baseDisplayShadow" />
+          </label>
+        </div>
+        <!-- DISPLAY BASE INDICATOR -->
+        <div class="form-control">
+          <label class="cursor-pointer label">
+            <span class="label-text">Display base indicator</span> 
+            <input id="baseIndicator" class="toggle toggle-primary" type="checkbox" v-model="settings.baseDisplayIndicator" />
+          </label>
+        </div>
 
-      <!-- BASE SIZE -->      
-      <div class="form-control">
-        <label class="label">
-          <span class="label-text">Base size</span>
-        </label> 
-        <label class="input-group input-group-md">
-          <input id="baseSize" class="input input-primary input-bordered input-md w-full" type="number" v-model="settings.baseSize" />
-          <span>px</span>
-        </label>
-      </div> 
-      <!-- BASE BACKGROUND -->
-      <div class="form-control">
-        <label class="label">
-          <span class="label-text">Base background</span>
-        </label> 
-        <input
-          id="baseBackground"
-          class="input input-primary input-bordered"
-          type="text"
-          v-model="settings.baseBackground"
-        />
-      </div> 
-      <!-- BASE HTML CONTENT -->
-      <div class="form-control">
-        <label class="label">
-          <span class="label-text">Base HTML Content</span>
-        </label> 
-        <textarea class="textarea h-24 textarea-bordered textarea-primary" v-model="settings.baseHtmlContent" />
-      </div> 
+        <!-- BASE SIZE -->      
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Base size</span>
+          </label> 
+          <label class="input-group input-group-md">
+            <input id="baseSize" class="input input-primary input-bordered input-md w-full" type="number" v-model="settings.baseSize" />
+            <span>px</span>
+          </label>
+        </div> 
+        <!-- BASE BACKGROUND -->
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Base background</span>
+          </label> 
+          <input
+            id="baseBackground"
+            class="input input-primary input-bordered"
+            type="text"
+            v-model="settings.baseBackground"
+          />
+        </div> 
+        <!-- BASE HTML CONTENT -->
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Base HTML Content</span>
+          </label> 
+          <textarea class="textarea h-24 textarea-bordered textarea-primary" v-model="settings.baseHtmlContent" />
+        </div> 
+      </div>
     </div>
   </div>
 </template>

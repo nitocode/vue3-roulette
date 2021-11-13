@@ -35,6 +35,6 @@ export default {
     baseDisplayShadow: true,
     baseDisplayIndicator: true,
     baseBackground: "#EEAA33",
-    baseHtmlContent: "Awesome<br>Wheel",
+    baseHtmlContent: "Touch<br>Me!",
   }
 }

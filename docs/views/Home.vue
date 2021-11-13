@@ -3,38 +3,40 @@
 
     <h1 class="text-4xl">Vue3 Roulette</h1>
     <div class="py-10 relative">
-      <Roulette
-        v-if="wheelActive"
-        ref="wheel"
-        @click="launchWheel"
-        :items="items"
-        :first-item-index="firstItemIndex"
-        :centered-indicator="wheelSettings.centeredIndicator"
-        :indicator-position="wheelSettings.indicatorPosition"
-        :size="wheelSettings.size"
-        :display-Shadow="wheelSettings.displayShadow"
-        :display-border="wheelSettings.displayBorder"
-        :display-indicator="wheelSettings.displayIndicator"
-        :duration="wheelSettings.duration"
-        :result-variation="wheelSettings.resultVariation"
-        :easing="wheelSettings.easing"
-        @wheel-start="wheelStartedCallback"
-        @wheel-end="wheelEndedCallback"
-        :counter-clockwise="wheelSettings.counterClockwise"
-        :horizontal-content="wheelSettings.horizontalContent"
-        :base-display="wheelSettings.baseDisplay"
-        :base-size="wheelSettings.baseSize"
-        :base-display-indicator="wheelSettings.baseDisplayIndicator"
-        :base-display-shadow="wheelSettings.baseDisplayShadow"
-        :base-background="wheelSettings.baseBackground"
-      >
-        <template #baseContent>
-          <div
-            v-if="wheelSettings.baseHtmlContent"
-            v-html="wheelSettings.baseHtmlContent"
-          ></div>
-        </template>
-      </Roulette>
+      <div class="wheel-anim" :class="{'wheel-anim-started': startAnim}">
+        <Roulette
+          v-if="wheelActive"
+          ref="wheel"
+          @click="launchWheel"
+          :items="items"
+          :first-item-index="firstItemIndex"
+          :centered-indicator="wheelSettings.centeredIndicator"
+          :indicator-position="wheelSettings.indicatorPosition"
+          :size="wheelSettings.size"
+          :display-Shadow="wheelSettings.displayShadow"
+          :display-border="wheelSettings.displayBorder"
+          :display-indicator="wheelSettings.displayIndicator"
+          :duration="wheelSettings.duration"
+          :result-variation="wheelSettings.resultVariation"
+          :easing="wheelSettings.easing"
+          @wheel-start="wheelStartedCallback"
+          @wheel-end="wheelEndedCallback"
+          :counter-clockwise="wheelSettings.counterClockwise"
+          :horizontal-content="wheelSettings.horizontalContent"
+          :base-display="wheelSettings.baseDisplay"
+          :base-size="wheelSettings.baseSize"
+          :base-display-indicator="wheelSettings.baseDisplayIndicator"
+          :base-display-shadow="wheelSettings.baseDisplayShadow"
+          :base-background="wheelSettings.baseBackground"
+        >
+          <template #baseContent>
+            <div
+              v-if="wheelSettings.baseHtmlContent"
+              v-html="wheelSettings.baseHtmlContent"
+            ></div>
+          </template>
+        </Roulette>
+      </div>
 
       <div 
         v-show="result"
@@ -88,9 +90,16 @@ export default {
     return {
       ...wheelData,
       wheelActive: true,
+      startAnim: false,
       managerId: 1,
       result: null
     }
+  },
+
+  mounted () {
+    setTimeout(() =>{
+      this.startAnim = true;
+    }, 500)
   },
 
   methods: {
@@ -119,6 +128,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.wheel-anim {
+  transition: transform 4s cubic-bezier(.58,-0.26,.24,1.11);
+  transform: rotate(-1800deg) scale(1.25);
+
+  &-started {
+    transform: rotate(0deg) scale(1);
+  }
+}
 
 </style>
