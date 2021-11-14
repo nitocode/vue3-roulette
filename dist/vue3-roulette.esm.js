@@ -164,7 +164,6 @@ var script = defineComponent({
       this.processingLock = true;
       var wheelResult = Math.floor(Math.random() * this.items.length + 1);
       var wheelElt = document.querySelector(".wheel");
-      console.log("wheelResult", wheelResult);
       this.itemSelected = this.items[wheelResult - 1];
       wheelElt.style.transform = "rotate(".concat(this.counterClockWiseOperator * (360 * 3) + -(wheelResult - 1) * this.itemAngle - this.itemAngle / 2 + this.degreesVariation, "deg)");
       this.$emit("wheel-start");
