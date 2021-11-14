@@ -3,10 +3,10 @@ import Home from "./views/Home.vue"
 import Docs from "./views/Docs.vue"
 
 export const router = createRouter({
-    history: createWebHistory("/vue3-roulette/"),
+    history: createWebHistory(),
     routes: [
-      { path: "/", component: Home },
-      { path: "/docs", component: Docs },
+      { path: '/', component: Home },
+      { path: '/docs', component: Docs },
     ],
   })
   
