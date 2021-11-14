@@ -8,12 +8,12 @@
       </div> 
       <div class="hidden px-2 mx-2 navbar-center lg:flex">
         <div class="flex items-stretch">
-          <!-- <router-link to="/"><a class="btn btn-ghost btn-sm rounded-btn">
+          <router-link to="/"><a class="btn btn-ghost btn-sm rounded-btn">
             Home
           </a></router-link>
           <router-link to="/docs"><a class="btn btn-ghost btn-sm rounded-btn">
             Docs
-          </a></router-link> -->
+          </a></router-link>
         </div>
       </div> 
       <div class="navbar-end">
