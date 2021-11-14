@@ -3,7 +3,7 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{js,vue}',
     '!<rootDir>/src/index.js',
-    '!<rootDir>/docs/**/*'
+    '!<rootDir>/pages/**/*'
   ],
   moduleFileExtensions: [ 'js', 'json', 'vue' ],
   transform: {
