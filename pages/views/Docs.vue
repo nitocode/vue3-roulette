@@ -12,6 +12,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.0.0/github-markdown-light.min.css");
 </style>
