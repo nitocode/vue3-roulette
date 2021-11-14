@@ -66,13 +66,13 @@ function launchWheel (){
 
 Composition API
 ```javascript
-this.$refs.wheel.launchWheel();
-this.$refs.wheel.reset();
+wheel.value.launchWheel();
+wheel.value.reset();
 ```
 Option API
 ```javascript
-wheel.value.launchWheel();
-wheel.value.reset();
+this.$refs.wheel.launchWheel();
+this.$refs.wheel.reset();
 ```
 
 ## Props API (Wheel)
