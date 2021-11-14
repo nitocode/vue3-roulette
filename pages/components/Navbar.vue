@@ -14,6 +14,9 @@
           <router-link to="/docs"><a class="btn btn-ghost btn-sm rounded-btn">
             Docs
           </a></router-link>
+          <router-link to="/examples"><a class="btn btn-ghost btn-sm rounded-btn">
+            Examples
+          </a></router-link>
         </div>
       </div> 
       <div class="navbar-end">
