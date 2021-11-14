@@ -16,15 +16,3 @@ export default {
   components: { Navbar, Footer }
 }
 </script>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-
-html, body {
-  font-family: 'Ubuntu', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  overflow-x: hidden;
-}
-</style>
