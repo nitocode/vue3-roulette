@@ -6,7 +6,7 @@
 
 ## Demo
 
-WIP
+https://roulette.nitocode.com/
 
 ## Installation
 
