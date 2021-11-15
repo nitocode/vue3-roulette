@@ -331,6 +331,7 @@ export default defineComponent ({
     overflow: hidden;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
   }
   .wheel-base-indicator {
     position: absolute;
