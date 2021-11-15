@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@1.16.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue3 Roulette</title>
+    <style>
+      html, body {
+        font-family: 'Ubuntu', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+<body>
+  <script>
+    const path = window.location.pathname.slice(1);
+    localStorage.setItem('path', path);
+    window.location.href='../';
+  </script>
+</body>
+</html>
