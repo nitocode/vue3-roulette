@@ -44,6 +44,7 @@
           transform: `rotate(${itemAngle * index}deg) skewY(${-(
             90 - itemAngle
           )}deg)`,
+          background: item.background,
         }"
       >
         <div
@@ -53,7 +54,6 @@
             transform: `skewY(${90 - itemAngle}deg) rotate(${
               itemAngle / 2
             }deg)`,
-            background: item.background,
           }"
         >
           <span v-html="item.htmlContent" :style="{ color: item.textColor }"></span>
