@@ -25,6 +25,6 @@ export default {
     baseDisplayShadow: true,
     baseDisplayIndicator: true,
     baseBackground: "#EEAA33",
-    baseHtmlContent: "Touch<br>Me!",
+    baseHtmlContent: "<strong>Touch<br>Me!</strong>",
   }
 }

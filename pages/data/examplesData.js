@@ -1,0 +1,67 @@
+const yesNoData = {
+  items: [
+    { id: 1, name: "Yes", htmlContent: "Yes", textColor: "", background: "#9deb9e" },
+    { id: 2, name: "No", htmlContent: "No", textColor: "", background: "#acacac" },
+    { id: 3, name: "Yes", htmlContent: "Yes", textColor: "", background: "#9deb9e" },
+    { id: 4, name: "No", htmlContent: "No", textColor: "", background: "#acacac" },
+    { id: 5, name: "Yes", htmlContent: "Yes", textColor: "", background: "#9deb9e" },
+    { id: 6, name: "No", htmlContent: "No", textColor: "", background: "#acacac" },
+    { id: 7, name: "Yes", htmlContent: "Yes", textColor: "", background: "#9deb9e" },
+    { id: 8, name: "No", htmlContent: "No", textColor: "", background: "#acacac" },
+    { id: 9, name: "Yes", htmlContent: "Yes", textColor: "", background: "#9deb9e" },
+    { id: 10, name: "No", htmlContent: "No", textColor: "", background: "#acacac" }
+  ],
+  firstItemIndex: { value: 0 },
+  wheelSettings: {
+    centeredIndicator: true,
+    indicatorPosition: "top",
+    size: 300,
+    displayShadow: true,
+    duration: 5,
+    resultVariation: 95,
+    easing: "ease",
+    counterClockwise: true,
+    horizontalContent: false,
+    displayBorder: true,
+    displayIndicator: true,
+    baseDisplay: true,
+    baseSize: 180,
+    baseDisplayShadow: true,
+    baseDisplayIndicator: true,
+    baseBackground: "rgb(255 69 69)",
+    baseHtmlContent: "<strong class=\"text-white\">Ask yourself<br>a question</strong>",
+  }
+};
+const namesData = {
+  items: [
+    { id: 1, name: "Jean", htmlContent: "Jean", textColor: "", background: "" },
+    { id: 2, name: "Marie", htmlContent: "Marie", textColor: "", background: "" },
+    { id: 3, name: "Louis", htmlContent: "Louis", textColor: "", background: "" },
+    { id: 4, name: "Max", htmlContent: "Max", textColor: "", background: "" },
+    { id: 5, name: "Caroline", htmlContent: "Caroline", textColor: "", background: "" },
+    { id: 6, name: "Lando", htmlContent: "Lando", textColor: "", background: "" },
+    { id: 7, name: "Anna", htmlContent: "Anna", textColor: "", background: "" },
+    { id: 6, name: "Pierre", htmlContent: "Pierre", textColor: "", background: "" },
+  ],
+  firstItemIndex: { value: 0 },
+  wheelSettings: {
+    centeredIndicator: true,
+    indicatorPosition: "top",
+    size: 300,
+    displayShadow: true,
+    duration: 5,
+    resultVariation: 70,
+    easing: "bounce",
+    counterClockwise: true,
+    horizontalContent: false,
+    displayBorder: true,
+    displayIndicator: true,
+    baseDisplay: true,
+    baseSize: 100,
+    baseDisplayShadow: true,
+    baseDisplayIndicator: true,
+    baseBackground: "#EEAA33",
+    baseHtmlContent: "<strong>Pick a<br>name!</strong>",
+  }
+};
+export { yesNoData, namesData };

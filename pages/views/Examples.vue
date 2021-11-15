@@ -1,24 +1,21 @@
 <template>
   <div>
-    <Roulette ref="wheel1" :items="firstWheel" />
+    <Example refName="example1" :wheelData="yesNoData" />
+    <div class="divider"></div>
+    <Example refName="names" :wheelData="namesData" />
   </div>
 </template>
 
 <script>
-import Roulette from "../../src/components/Roulette.vue";
+import Example from "../components/Example.vue";
+import { yesNoData, namesData } from "../data/examplesData";
 export default {
   name: "Examples",
-  components: { Roulette },
+  components: { Example },
   data () {
     return {
-      firstWheel: [
-        { id: 1, name: "Oui", htmlContent: "Oui", textColor: "", background: "" },
-        { id: 2, name: "Non", htmlContent: "Non", textColor: "", background: "" },
-        { id: 3, name: "Oui", htmlContent: "Oui", textColor: "", background: "" },
-        { id: 4, name: "Non", htmlContent: "Non", textColor: "", background: "" },
-        { id: 5, name: "Oui", htmlContent: "Oui", textColor: "", background: "" },
-        { id: 6, name: "Non", htmlContent: "Non", textColor: "", background: "" }
-      ]
+      yesNoData,
+      namesData
     }
   }
 }
