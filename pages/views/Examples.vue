@@ -1,14 +1,14 @@
 <template>
   <div>
+    <Example class="big-wheel" refName="eat" :wheelData="eatData" />
+    <div class="divider"></div>
     <Example refName="yesno" :wheelData="yesNoData" />
+    <div class="divider"></div>
+    <Example class="big-wheel" refName="roulette" :wheelData="rouletteData" />
     <div class="divider"></div>
     <Example refName="names" :wheelData="namesData" />
     <div class="divider"></div>
-    <Example refName="eat" :wheelData="eatData" />
-    <div class="divider"></div>
     <Example refName="numbers" :wheelData="numbersData" />
-    <div class="divider"></div>
-    <Example refName="roulette" :wheelData="rouletteData" />
   </div>
 </template>
 
@@ -30,6 +30,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+@media screen and (max-width: 450px){
+  :deep(.big-wheel .relative) {
+    transform: scale(0.7);
+  }
+}
 
 </style>
