@@ -1,5 +1,6 @@
 <template>
   <div
+    :id="`wheel-container-${randomIdRoulette}`"
     class="wheel-container"
     :class="[
       `indicator-${indicatorPosition}`,
@@ -43,6 +44,7 @@
           transform: `rotate(${itemAngle * index}deg) skewY(${-(
             90 - itemAngle
           )}deg)`,
+          background: item.background,
         }"
       >
         <div
@@ -52,7 +54,6 @@
             transform: `skewY(${90 - itemAngle}deg) rotate(${
               itemAngle / 2
             }deg)`,
-            background: item.background,
           }"
         >
           <span v-html="item.htmlContent" :style="{ color: item.textColor }"></span>
@@ -175,6 +176,7 @@ export default defineComponent ({
   },
   data() {
     return {
+      randomIdRoulette: 0,
       itemSelected: null,
       processingLock: false,
     };
@@ -213,17 +215,20 @@ export default defineComponent ({
     },
   },
   mounted() {
-    this.reset();
-    document.querySelector(".wheel").addEventListener("transitionend", () => {
-      this.processingLock = false;
-      this.$emit("wheel-end", this.itemSelected);
-    });
+    this.randomIdRoulette = Number((Math.random() * (999999 - 1) +1).toFixed(0));
+    this.$nextTick(() => {
+      this.reset();
+      document.querySelector(`#wheel-container-${this.randomIdRoulette} .wheel`).addEventListener("transitionend", () => {
+        this.processingLock = false;
+        this.$emit("wheel-end", this.itemSelected);
+      });
+    })
   },
   methods: {
     reset() {
       this.itemSelected = null;
       document.querySelector(
-        ".wheel"
+        `#wheel-container-${this.randomIdRoulette} .wheel`
       ).style.transform = `rotate(${this.startingAngle}deg)`;
     },
     launchWheel() {
@@ -232,7 +237,7 @@ export default defineComponent ({
       }
       this.processingLock = true;
       const wheelResult = Math.floor(Math.random() * this.items.length + 1);
-      const wheelElt = document.querySelector(".wheel");
+      const wheelElt = document.querySelector(`#wheel-container-${this.randomIdRoulette} .wheel`);
 
       this.itemSelected = this.items[wheelResult - 1];
 
@@ -248,7 +253,7 @@ export default defineComponent ({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .wheel-container,
 .wheel-base,
 .wheel-base-container,
@@ -326,6 +331,7 @@ export default defineComponent ({
     overflow: hidden;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
   }
   .wheel-base-indicator {
     position: absolute;

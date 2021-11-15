@@ -2,19 +2,9 @@ export default {
   items: [
     { id: 1, name: "Banana", htmlContent: "Banana", textColor: "", background: "" },
     { id: 2, name: "Apple", htmlContent: "Apple", textColor: "", background: "" },
-    {
-      id: 3,
-      name: "Orange",
-      htmlContent: "Orange",
-      textColor: "", background: "",
-    },
+    { id: 3, name: "Orange", htmlContent: "Orange", textColor: "", background: "" },
     { id: 4, name: "Cherry", htmlContent: "Cherry", textColor: "", background: "" },
-    {
-      id: 5,
-      name: "Strawberry",
-      htmlContent: "Strawberry",
-      textColor: "", background: "",
-    },
+    { id: 5, name: "Strawberry", htmlContent: "Strawberry", textColor: "", background: "" },
     { id: 6, name: "Grape", htmlContent: "Grape", textColor: "", background: "" },
   ],
   firstItemIndex: { value: 0 },
@@ -35,6 +25,6 @@ export default {
     baseDisplayShadow: true,
     baseDisplayIndicator: true,
     baseBackground: "#EEAA33",
-    baseHtmlContent: "Touch<br>Me!",
+    baseHtmlContent: "<strong>Touch<br>Me!</strong>",
   }
 }

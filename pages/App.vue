@@ -1,8 +1,12 @@
 <template>
   <div>
     <Navbar />
-    <div class="container mx-auto my-14 px-4">
-      <router-view></router-view>
+    <div class="container mx-auto my-14 px-4 py-16 lg:py-0">
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </div>
     <Footer />
   </div>
@@ -24,3 +28,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

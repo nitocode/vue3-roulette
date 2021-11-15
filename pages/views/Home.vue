@@ -75,7 +75,7 @@
 import ItemsManager from "../components/ItemsManager.vue";
 import WheelManager from "../components/WheelManager.vue";
 import Roulette from "../../src/components/Roulette.vue";
-import wheelData from "../data";
+import wheelData from "../data/homeData";
 
 export default {
   name: "Home",
