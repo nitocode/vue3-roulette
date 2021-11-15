@@ -1,5 +1,6 @@
 <template>
   <div
+    :id="`wheel-container-${randomIdRoulette}`"
     class="wheel-container"
     :class="[
       `indicator-${indicatorPosition}`,
@@ -175,6 +176,7 @@ export default defineComponent ({
   },
   data() {
     return {
+      randomIdRoulette: 0,
       itemSelected: null,
       processingLock: false,
     };
@@ -213,17 +215,20 @@ export default defineComponent ({
     },
   },
   mounted() {
-    this.reset();
-    document.querySelector(".wheel").addEventListener("transitionend", () => {
-      this.processingLock = false;
-      this.$emit("wheel-end", this.itemSelected);
-    });
+    this.randomIdRoulette = Number((Math.random() * (999999 - 1) +1).toFixed(0));
+    this.$nextTick(() => {
+      this.reset();
+      document.querySelector(`#wheel-container-${this.randomIdRoulette} .wheel`).addEventListener("transitionend", () => {
+        this.processingLock = false;
+        this.$emit("wheel-end", this.itemSelected);
+      });
+    })
   },
   methods: {
     reset() {
       this.itemSelected = null;
       document.querySelector(
-        ".wheel"
+        `#wheel-container-${this.randomIdRoulette} .wheel`
       ).style.transform = `rotate(${this.startingAngle}deg)`;
     },
     launchWheel() {
@@ -232,7 +237,7 @@ export default defineComponent ({
       }
       this.processingLock = true;
       const wheelResult = Math.floor(Math.random() * this.items.length + 1);
-      const wheelElt = document.querySelector(".wheel");
+      const wheelElt = document.querySelector(`#wheel-container-${this.randomIdRoulette} .wheel`);
 
       this.itemSelected = this.items[wheelResult - 1];
 
@@ -248,7 +253,7 @@ export default defineComponent ({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .wheel-container,
 .wheel-base,
 .wheel-base-container,
