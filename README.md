@@ -8,6 +8,8 @@
 
 https://roulette.nitocode.com/
 
+See also: [codesandbox template](https://codesandbox.io/s/vue3-roulette-c8tml)
+
 ## Installation
 
 ### Using npm
