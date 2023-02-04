@@ -1,26 +1,27 @@
 <template>
   <div>
-
-    <h1 class="text-4xl">Vue3 Roulette</h1>
+    <h1 class="text-4xl">
+      Vue3 Roulette
+    </h1>
     <div class="py-10 relative">
-      <div class="wheel-anim" :class="{'wheel-anim-started': startAnim}">
+      <div
+        class="wheel-anim"
+        :class="{'wheel-anim-started': startAnim}"
+      >
         <Roulette
           v-if="wheelActive"
           ref="wheel"
-          @click="launchWheel"
           :items="items"
           :first-item-index="firstItemIndex"
           :centered-indicator="wheelSettings.centeredIndicator"
           :indicator-position="wheelSettings.indicatorPosition"
           :size="wheelSettings.size"
-          :display-Shadow="wheelSettings.displayShadow"
+          :display-shadow="wheelSettings.displayShadow"
           :display-border="wheelSettings.displayBorder"
           :display-indicator="wheelSettings.displayIndicator"
           :duration="wheelSettings.duration"
           :result-variation="wheelSettings.resultVariation"
           :easing="wheelSettings.easing"
-          @wheel-start="wheelStartedCallback"
-          @wheel-end="wheelEndedCallback"
           :counter-clockwise="wheelSettings.counterClockwise"
           :horizontal-content="wheelSettings.horizontalContent"
           :base-display="wheelSettings.baseDisplay"
@@ -28,12 +29,15 @@
           :base-display-indicator="wheelSettings.baseDisplayIndicator"
           :base-display-shadow="wheelSettings.baseDisplayShadow"
           :base-background="wheelSettings.baseBackground"
+          @click="launchWheel"
+          @wheel-start="wheelStartedCallback"
+          @wheel-end="wheelEndedCallback"
         >
           <template #baseContent>
             <div
               v-if="wheelSettings.baseHtmlContent"
               v-html="wheelSettings.baseHtmlContent"
-            ></div>
+            />
           </template>
         </Roulette>
       </div>
@@ -42,19 +46,39 @@
         v-show="result"
         class="absolute bottom-2 left-1/2 transform -translate-x-1/2"
       >
-        <button class="btn btn-xs mx-2" @click="onHardReset()">Hard reset</button>
-        <button class="btn btn-xs mx-2" @click="onSoftReset()">Soft reset</button>
+        <button
+          class="btn btn-xs mx-2"
+          @click="onHardReset()"
+        >
+          Hard reset
+        </button>
+        <button
+          class="btn btn-xs mx-2"
+          @click="onSoftReset()"
+        >
+          Soft reset
+        </button>
       </div>
     </div>
 
-    <p class="text-xl text-gray-500 italic mb-10">A customizable and flexible fortune wheel made with vue3</p>
+    <p class="text-xl text-gray-500 italic mb-10">
+      A customizable and flexible fortune wheel made with vue3
+    </p>
 
     <div class="tabs tabs-boxed justify-center">
-      <a class="tab" :class="{'tab-active': managerId === 1 }" @click="managerId = 1">Items manager</a> 
-      <a class="tab" :class="{'tab-active': managerId === 2 }" @click="managerId = 2">Wheel manager</a>
+      <a
+        class="tab"
+        :class="{'tab-active': managerId === 1 }"
+        @click="managerId = 1"
+      >Items manager</a> 
+      <a
+        class="tab"
+        :class="{'tab-active': managerId === 2 }"
+        @click="managerId = 2"
+      >Wheel manager</a>
     </div>
 
-    <div class="divider"></div> 
+    <div class="divider" /> 
 
     <ItemsManager
       v-if="managerId === 1"

@@ -1,14 +1,31 @@
 <template>
   <div>
-    <Example class="big-wheel" refName="eat" :wheelData="eatData" />
-    <div class="divider"></div>
-    <Example refName="yesno" :wheelData="yesNoData" />
-    <div class="divider"></div>
-    <Example class="big-wheel" refName="roulette" :wheelData="rouletteData" />
-    <div class="divider"></div>
-    <Example refName="names" :wheelData="namesData" />
-    <div class="divider"></div>
-    <Example refName="numbers" :wheelData="numbersData" />
+    <Example
+      class="big-wheel"
+      ref-name="eat"
+      :wheel-data="eatData"
+    />
+    <div class="divider" />
+    <Example
+      ref-name="yesno"
+      :wheel-data="yesNoData"
+    />
+    <div class="divider" />
+    <Example
+      class="big-wheel"
+      ref-name="roulette"
+      :wheel-data="rouletteData"
+    />
+    <div class="divider" />
+    <Example
+      ref-name="names"
+      :wheel-data="namesData"
+    />
+    <div class="divider" />
+    <Example
+      ref-name="numbers"
+      :wheel-data="numbersData"
+    />
   </div>
 </template>
 

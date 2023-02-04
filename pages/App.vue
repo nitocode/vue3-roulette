@@ -3,7 +3,10 @@
     <Navbar />
     <div class="container mx-auto my-14 px-4 py-16 lg:py-0">
       <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
+        <transition
+          name="fade"
+          mode="out-in"
+        >
           <component :is="Component" />
         </transition>
       </router-view>

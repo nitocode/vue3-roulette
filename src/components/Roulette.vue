@@ -21,9 +21,12 @@
       }"
     >
       <div class="wheel-base">
-        <slot name="baseContent"></slot>
+        <slot name="baseContent" />
       </div>
-      <div v-if="baseDisplayIndicator" class="wheel-base-indicator"></div>
+      <div
+        v-if="baseDisplayIndicator"
+        class="wheel-base-indicator"
+      />
     </div>
     <!-- WHEEL -->
     <div
@@ -33,7 +36,7 @@
         width: `${size}px`,
         height: `${size}px`,
         transitionDuration: `${duration}s`,
-        transform: `rotate(${this.startingAngle}deg)`,
+        transform: `rotate(${startingAngle}deg)`,
       }"
     >
       <div
@@ -56,7 +59,10 @@
             }deg)`,
           }"
         >
-          <span v-html="item.htmlContent" :style="{ color: item.textColor }"></span>
+          <span
+            :style="{ color: item.textColor }"
+            v-html="item.htmlContent"
+          />
         </div>
       </div>
     </div>
