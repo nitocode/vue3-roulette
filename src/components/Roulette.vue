@@ -89,6 +89,16 @@ export default defineComponent ({
         return { value: 0 };
       },
     },
+    wheelResultIndex: {
+      type: Object,
+      required: false,
+      default() {
+        return { value: null };
+      },
+      validator(obj) {
+        return typeof obj.value === "number";
+      },
+    },
     centeredIndicator: {
       type: Boolean,
       required: false,
@@ -242,14 +252,19 @@ export default defineComponent ({
         return;
       }
       this.processingLock = true;
-      const wheelResult = Math.floor(Math.random() * this.items.length + 1);
+      let wheelResult;
+      if (this.wheelResultIndex.value !== null) {
+        wheelResult = this.wheelResultIndex.value % this.items.length;
+      } else {
+        wheelResult = Math.floor(Math.random() * this.items.length + 1) - 1;
+      }
       const wheelElt = document.querySelector(`#wheel-container-${this.randomIdRoulette} .wheel`);
 
-      this.itemSelected = this.items[wheelResult - 1];
+      this.itemSelected = this.items[wheelResult];
 
       wheelElt.style.transform = `rotate(${
         this.counterClockWiseOperator * (360 * 3) +
-        -(wheelResult - 1) * this.itemAngle -
+        -(wheelResult) * this.itemAngle -
         this.itemAngle / 2 +
         this.degreesVariation
       }deg)`;

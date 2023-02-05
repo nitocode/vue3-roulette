@@ -127,7 +127,6 @@ export default {
   mounted() {
     this.items = this.initialItems;
     this.firstItemIndex = this.initialFirstItemIndex;
-    console.log('this.firstItemIndex', this.firstItemIndex)
   },
   methods: {
     add() {

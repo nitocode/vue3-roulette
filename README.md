@@ -81,6 +81,7 @@ this.$refs.wheel.reset();
 |------------|------------|----------|------------|----------------|--|
 | items    | Object | yes     | -          |               | 4 items minimum |
 | first-item-index      | Object     | no    | { value: 0 } |               |
+| wheel-result-index      | Object     | no    | { value: null } | from 0 to items length      |
 | centered-indicator      | Boolean     | no    | false |               |
 | indicator-position       | String     | no       | "top"       | "top" \| "right" \| "bottom" \| "left" |
 | size | Number   | no       | 300      |                | size unit: pixel |
