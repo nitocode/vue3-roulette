@@ -21,9 +21,12 @@
       }"
     >
       <div class="wheel-base">
-        <slot name="baseContent"></slot>
+        <slot name="baseContent" />
       </div>
-      <div v-if="baseDisplayIndicator" class="wheel-base-indicator"></div>
+      <div
+        v-if="baseDisplayIndicator"
+        class="wheel-base-indicator"
+      />
     </div>
     <!-- WHEEL -->
     <div
@@ -33,7 +36,7 @@
         width: `${size}px`,
         height: `${size}px`,
         transitionDuration: `${duration}s`,
-        transform: `rotate(${this.startingAngle}deg)`,
+        transform: `rotate(${startingAngle}deg)`,
       }"
     >
       <div
@@ -56,7 +59,10 @@
             }deg)`,
           }"
         >
-          <span v-html="item.htmlContent" :style="{ color: item.textColor }"></span>
+          <span
+            :style="{ color: item.textColor }"
+            v-html="item.htmlContent"
+          />
         </div>
       </div>
     </div>
@@ -81,6 +87,16 @@ export default defineComponent ({
       required: false,
       default() {
         return { value: 0 };
+      },
+    },
+    wheelResultIndex: {
+      type: Object,
+      required: false,
+      default() {
+        return { value: null };
+      },
+      validator(obj) {
+        return typeof obj.value === "number";
       },
     },
     centeredIndicator: {
@@ -236,14 +252,19 @@ export default defineComponent ({
         return;
       }
       this.processingLock = true;
-      const wheelResult = Math.floor(Math.random() * this.items.length + 1);
+      let wheelResult;
+      if (this.wheelResultIndex.value !== null) {
+        wheelResult = this.wheelResultIndex.value % this.items.length;
+      } else {
+        wheelResult = Math.floor(Math.random() * this.items.length + 1) - 1;
+      }
       const wheelElt = document.querySelector(`#wheel-container-${this.randomIdRoulette} .wheel`);
 
-      this.itemSelected = this.items[wheelResult - 1];
+      this.itemSelected = this.items[wheelResult];
 
       wheelElt.style.transform = `rotate(${
         this.counterClockWiseOperator * (360 * 3) +
-        -(wheelResult - 1) * this.itemAngle -
+        -(wheelResult) * this.itemAngle -
         this.itemAngle / 2 +
         this.degreesVariation
       }deg)`;

@@ -1,24 +1,20 @@
 <template>
   <div>
-
     <div class="relative pb-12">
       <Roulette
         v-if="wheelActive"
         :ref="refName"
-        @click="launchWheel"
         :items="items"
         :first-item-index="wheelData.firstItemIndex"
         :centered-indicator="wheelData.wheelSettings.centeredIndicator"
         :indicator-position="wheelData.wheelSettings.indicatorPosition"
         :size="wheelData.wheelSettings.size"
-        :display-Shadow="wheelData.wheelSettings.displayShadow"
+        :display-shadow="wheelData.wheelSettings.displayShadow"
         :display-border="wheelData.wheelSettings.displayBorder"
         :display-indicator="wheelData.wheelSettings.displayIndicator"
         :duration="wheelData.wheelSettings.duration"
         :result-variation="wheelData.wheelSettings.resultVariation"
         :easing="wheelData.wheelSettings.easing"
-        @wheel-start="wheelStartedCallback"
-        @wheel-end="wheelEndedCallback"
         :counter-clockwise="wheelData.wheelSettings.counterClockwise"
         :horizontal-content="wheelData.wheelSettings.horizontalContent"
         :base-display="wheelData.wheelSettings.baseDisplay"
@@ -26,12 +22,15 @@
         :base-display-indicator="wheelData.wheelSettings.baseDisplayIndicator"
         :base-display-shadow="wheelData.wheelSettings.baseDisplayShadow"
         :base-background="wheelData.wheelSettings.baseBackground"
+        @click="launchWheel"
+        @wheel-start="wheelStartedCallback"
+        @wheel-end="wheelEndedCallback"
       >
         <template #baseContent>
           <div
             v-if="wheelData.wheelSettings.baseHtmlContent"
             v-html="wheelData.wheelSettings.baseHtmlContent"
-          ></div>
+          />
         </template>
       </Roulette>
 
@@ -39,25 +38,49 @@
         v-show="result"
         class="absolute bottom-2 left-1/2 transform -translate-x-1/2"
       >
-        <button class="btn btn-xs mx-2" @click="onHardReset()">Hard reset</button>
-        <button class="btn btn-xs mx-2" @click="onSoftReset()">Soft reset</button>
+        <button
+          class="btn btn-xs mx-2"
+          @click="onHardReset()"
+        >
+          Hard reset
+        </button>
+        <button
+          class="btn btn-xs mx-2"
+          @click="onSoftReset()"
+        >
+          Soft reset
+        </button>
       </div>
     </div>
     
     <div>
-      <button class="btn btn-primary" @click="showCustomization = !showCustomization">
+      <button
+        class="btn btn-primary"
+        @click="showCustomization = !showCustomization"
+      >
         <span v-if="!showCustomization">Customize me!</span>
         <span v-else>Hide Customization</span>
       </button> 
     </div>
 
-    <div v-if="showCustomization" class="mt-10">
+    <div
+      v-if="showCustomization"
+      class="mt-10"
+    >
       <div class="tabs tabs-boxed justify-center">
-        <a class="tab" :class="{'tab-active': managerId === 1 }" @click="managerId = 1">Items manager</a> 
-        <a class="tab" :class="{'tab-active': managerId === 2 }" @click="managerId = 2">Wheel manager</a>
+        <a
+          class="tab"
+          :class="{'tab-active': managerId === 1 }"
+          @click="managerId = 1"
+        >Items manager</a> 
+        <a
+          class="tab"
+          :class="{'tab-active': managerId === 2 }"
+          @click="managerId = 2"
+        >Wheel manager</a>
       </div>
 
-      <div class="divider"></div> 
+      <div class="divider" /> 
 
       <ItemsManager
         v-if="managerId === 1"
@@ -73,7 +96,10 @@
       />
 
       <div class="mt-4">
-        <button class="btn btn-primary" @click="showCustomization = false">
+        <button
+          class="btn btn-primary"
+          @click="showCustomization = false"
+        >
           <span>Hide Customization</span>
         </button> 
       </div>

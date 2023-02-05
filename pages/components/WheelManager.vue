@@ -1,27 +1,44 @@
 <template>
   <div class="flex flex-col lg:flex-row items-top justify-around">
     <div>
-      <p class="text-xl mb-4">Wheel manager</p>
+      <p class="text-xl mb-4">
+        Wheel manager
+      </p>
       
       <!-- DISPLAY SHADOW -->
       <div class="form-control">
         <label class="cursor-pointer label">
           <span class="label-text">Display Shadow</span> 
-          <input id="shadow" class="toggle toggle-primary" type="checkbox" v-model="settings.displayShadow" />
+          <input
+            id="shadow"
+            v-model="settings.displayShadow"
+            class="toggle toggle-primary"
+            type="checkbox"
+          >
         </label>
       </div>
       <!-- DISPLAY BORDER -->      
       <div class="form-control">
         <label class="cursor-pointer label">
           <span class="label-text">Display Border</span> 
-          <input id="border" class="toggle toggle-primary" type="checkbox" v-model="settings.displayBorder" />
+          <input
+            id="border"
+            v-model="settings.displayBorder"
+            class="toggle toggle-primary"
+            type="checkbox"
+          >
         </label>
       </div>
       <!-- DISPLAY INDICATOR -->
       <div class="form-control">
         <label class="cursor-pointer label">
           <span class="label-text">Display Indicator</span> 
-          <input id="indicator" class="toggle toggle-primary" type="checkbox" v-model="settings.displayIndicator" />
+          <input
+            id="indicator"
+            v-model="settings.displayIndicator"
+            class="toggle toggle-primary"
+            type="checkbox"
+          >
         </label>
       </div>
       <!-- CENTERED INDICATOR -->
@@ -30,10 +47,10 @@
           <span class="label-text">Centered indicator</span> 
           <input
             id="centered"
+            v-model="settings.centeredIndicator"
             type="checkbox"
             class="checkbox checkbox-primary"
-            v-model="settings.centeredIndicator"
-          />
+          >
         </label>
       </div>
       <!-- COUNTER CLOCKWISE -->
@@ -42,10 +59,10 @@
           <span class="label-text">Counter clockwise</span> 
           <input
             id="clock"
+            v-model="settings.counterClockwise"
             type="checkbox"
             class="checkbox checkbox-primary"
-            v-model="settings.counterClockwise"
-          />
+          >
         </label>
       </div>
       <!-- CENTERED INDICATOR -->      
@@ -54,10 +71,10 @@
           <span class="label-text">Horizontal content</span> 
           <input
             id="horizontal"
+            v-model="settings.horizontalContent"
             type="checkbox"
             class="checkbox checkbox-primary"
-            v-model="settings.horizontalContent"
-          />
+          >
         </label>
       </div>
       <!-- SIZE -->
@@ -66,7 +83,12 @@
           <span class="label-text">Size</span>
         </label> 
         <label class="input-group input-group-md">
-          <input id="size" class="input input-primary input-bordered input-md w-full" type="number" v-model="settings.size" />
+          <input
+            id="size"
+            v-model="settings.size"
+            class="input input-primary input-bordered input-md w-full"
+            type="number"
+          >
           <span>px</span>
         </label>
       </div> 
@@ -76,7 +98,12 @@
           <span class="label-text">Duration</span>
         </label> 
         <label class="input-group input-group-md">
-          <input id="duration" class="input input-primary input-bordered input-md w-full" type="number" v-model="settings.duration" />
+          <input
+            id="duration"
+            v-model="settings.duration"
+            class="input input-primary input-bordered input-md w-full"
+            type="number"
+          >
           <span>&nbsp;s&nbsp;</span>
         </label>
       </div> 
@@ -86,56 +113,91 @@
           <span class="label-text">Variation</span>
         </label> 
         <label class="input-group input-group-md">
-          <input id="variation" class="input input-primary input-bordered input-md w-full" type="number" v-model="settings.resultVariation" />
+          <input
+            id="variation"
+            v-model="settings.resultVariation"
+            class="input input-primary input-bordered input-md w-full"
+            type="number"
+          >
           <span>%&nbsp;</span>
         </label>
 
-        <input type="range" max="100" v-model="settings.resultVariation" class="range range-primary mt-2"> 
+        <input
+          v-model="settings.resultVariation"
+          type="range"
+          max="100"
+          class="range range-primary mt-2"
+        > 
       </div> 
       <!-- INDICATOR POSITION -->
       <div class="form-control w-full max-w-xs">
-        <label for="position" class="label">
+        <label
+          for="position"
+          class="label"
+        >
           <span class="label-text">Indicator position</span> 
         </label> 
         <select
-          name="position"
-          class="select select-bordered select-primary w-full max-w-xs"
           id="position"
           v-model="settings.indicatorPosition"
+          name="position"
+          class="select select-bordered select-primary w-full max-w-xs"
         >
-          <option value="top">Top</option>
-          <option value="right">Right</option>
-          <option value="bottom">Bottom</option>
-          <option value="left">Left</option>
+          <option value="top">
+            Top
+          </option>
+          <option value="right">
+            Right
+          </option>
+          <option value="bottom">
+            Bottom
+          </option>
+          <option value="left">
+            Left
+          </option>
         </select>
       </div>
 
       <!-- EASING -->
       <div class="form-control w-full max-w-xs">
-        <label for="easing" class="label">
+        <label
+          for="easing"
+          class="label"
+        >
           <span class="label-text">Easing</span> 
         </label> 
         <select
-          name="easing"
-          class="select select-bordered select-primary w-full max-w-xs"
           id="easing"
           v-model="settings.easing"
+          name="easing"
+          class="select select-bordered select-primary w-full max-w-xs"
         >
-          <option value="ease">Ease</option>
-          <option value="bounce">Bounce</option>
+          <option value="ease">
+            Ease
+          </option>
+          <option value="bounce">
+            Bounce
+          </option>
         </select>
       </div>
     </div>
 
-    <div class="divider lg:divider-vertical"></div> 
+    <div class="divider lg:divider-vertical" /> 
 
     <div>
-      <p class="text-xl mb-4">Wheel base manager</p>
+      <p class="text-xl mb-4">
+        Wheel base manager
+      </p>
       <!-- DISPLAY BASE -->      
       <div class="form-control">
         <label class="cursor-pointer label">
           <span class="label-text">Display base</span> 
-          <input id="base" class="toggle toggle-primary" type="checkbox" v-model="settings.baseDisplay" />
+          <input
+            id="base"
+            v-model="settings.baseDisplay"
+            class="toggle toggle-primary"
+            type="checkbox"
+          >
         </label>
       </div>
       <div :class="{'opacity-50': !settings.baseDisplay}">
@@ -143,14 +205,24 @@
         <div class="form-control">
           <label class="cursor-pointer label">
             <span class="label-text">Display base shadow</span> 
-            <input id="baseShadow" class="toggle toggle-primary" type="checkbox" v-model="settings.baseDisplayShadow" />
+            <input
+              id="baseShadow"
+              v-model="settings.baseDisplayShadow"
+              class="toggle toggle-primary"
+              type="checkbox"
+            >
           </label>
         </div>
         <!-- DISPLAY BASE INDICATOR -->
         <div class="form-control">
           <label class="cursor-pointer label">
             <span class="label-text">Display base indicator</span> 
-            <input id="baseIndicator" class="toggle toggle-primary" type="checkbox" v-model="settings.baseDisplayIndicator" />
+            <input
+              id="baseIndicator"
+              v-model="settings.baseDisplayIndicator"
+              class="toggle toggle-primary"
+              type="checkbox"
+            >
           </label>
         </div>
 
@@ -160,7 +232,12 @@
             <span class="label-text">Base size</span>
           </label> 
           <label class="input-group input-group-md">
-            <input id="baseSize" class="input input-primary input-bordered input-md w-full" type="number" v-model="settings.baseSize" />
+            <input
+              id="baseSize"
+              v-model="settings.baseSize"
+              class="input input-primary input-bordered input-md w-full"
+              type="number"
+            >
             <span>px</span>
           </label>
         </div> 
@@ -171,17 +248,20 @@
           </label> 
           <input
             id="baseBackground"
+            v-model="settings.baseBackground"
             class="input input-primary input-bordered"
             type="text"
-            v-model="settings.baseBackground"
-          />
+          >
         </div> 
         <!-- BASE HTML CONTENT -->
         <div class="form-control">
           <label class="label">
             <span class="label-text">Base HTML Content</span>
           </label> 
-          <textarea class="textarea h-24 textarea-bordered textarea-primary" v-model="settings.baseHtmlContent" />
+          <textarea
+            v-model="settings.baseHtmlContent"
+            class="textarea h-24 textarea-bordered textarea-primary"
+          />
         </div> 
       </div>
     </div>
