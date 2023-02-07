@@ -2,8 +2,6 @@
 
 > A customizable and flexible fortune wheel for vue3
 
-![vue3-roulette gif](/public/vue3-roulette.gif)
-
 ## Demo
 
 https://roulette.nitocode.com/
