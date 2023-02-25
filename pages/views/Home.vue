@@ -130,8 +130,8 @@ export default {
     launchWheel() {
       this.$refs.wheel.launchWheel();
     },
-    wheelStartedCallback() {
-      console.log("wheel started !");
+    wheelStartedCallback(resultItem) {
+      console.log("wheel started !", resultItem);
     },
     wheelEndedCallback(resultItem) {
       console.log("wheel ended !", resultItem);
