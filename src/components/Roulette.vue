@@ -268,7 +268,7 @@ export default defineComponent ({
         this.itemAngle / 2 +
         this.degreesVariation
       }deg)`;
-      this.$emit("wheel-start");
+      this.$emit("wheel-start", this.itemSelected);
     },
   },
 });
