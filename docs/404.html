@@ -22,9 +22,19 @@
   </head>
 <body>
   <script>
+    // Sauvegarder le chemin et les paramètres d'URL
     const path = window.location.pathname.slice(1);
-    localStorage.setItem('path', path);
+    const queryParams = window.location.search;
+    const hash = window.location.hash;
+    
+    // Stocker le chemin et les paramètres dans le sessionStorage
+    sessionStorage.setItem('spa-path', path);
+    sessionStorage.setItem('spa-query', queryParams);
+    sessionStorage.setItem('spa-hash', hash);
+    
+    // Rediriger vers la racine du site
     window.location.href='../';
+    
   </script>
 </body>
 </html>
