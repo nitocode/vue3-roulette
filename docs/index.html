@@ -32,6 +32,24 @@
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      // Récupérer les informations stockées par la page 404.html
+      const spaPath = sessionStorage.getItem('spa-path');
+      const spaQuery = sessionStorage.getItem('spa-query');
+      const spaHash = sessionStorage.getItem('spa-hash');
+      
+      // Si des informations ont été stockées, reconstruire l'URL et rediriger
+      if (spaPath) {
+        // Nettoyer le sessionStorage
+        sessionStorage.removeItem('spa-path');
+        sessionStorage.removeItem('spa-query');
+        sessionStorage.removeItem('spa-hash');
+        
+        // Reconstruire l'URL et rediriger
+        const url = '/' + spaPath + (spaQuery || '') + (spaHash || '');
+        window.history.replaceState(null, null, url);
+      }
+    </script>
     
   </body>
 </html>
