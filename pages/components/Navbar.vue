@@ -50,7 +50,12 @@
             </router-link>
             <router-link to="/examples">
               <a class="btn btn-ghost btn-sm rounded-btn">
-                Have fun
+                Demo
+              </a>
+            </router-link>
+            <router-link to="/custom">
+              <a class="btn btn-ghost btn-sm rounded-btn">
+                Custom
               </a>
             </router-link>
           </div>
@@ -97,7 +102,15 @@
             to="/examples"
             @click="drawerOpen = false"
           >
-            <a>Have fun</a>
+            <a>Demo</a>
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            to="/custom"
+            @click="drawerOpen = false"
+          >
+            <a>Custom</a>
           </router-link>
         </li>
       </ul>
