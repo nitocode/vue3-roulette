@@ -107,6 +107,21 @@
           <span>&nbsp;s&nbsp;</span>
         </label>
       </div> 
+      <!-- REVOLUTIONS -->      
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Revolutions</span>
+        </label> 
+        <label class="input-group input-group-md">
+          <input
+            id="revolutions"
+            v-model="settings.revolutions"
+            class="input input-primary input-bordered input-md w-full"
+            type="number"
+          >
+          <span>&nbsp;times&nbsp;</span>
+        </label>
+      </div> 
       <!-- VARIATION -->      
       <div class="form-control">
         <label class="label">
