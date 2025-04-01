@@ -14,6 +14,7 @@ export default {
     size: 300,
     displayShadow: true,
     duration: 5,
+    revolutions: 3,
     resultVariation: 70,
     easing: "bounce",
     counterClockwise: true,

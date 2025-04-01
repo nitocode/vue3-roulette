@@ -13,6 +13,7 @@
         :display-border="wheelData.wheelSettings.displayBorder"
         :display-indicator="wheelData.wheelSettings.displayIndicator"
         :duration="wheelData.wheelSettings.duration"
+        :revolutions="wheelData.wheelSettings.revolutions"
         :result-variation="wheelData.wheelSettings.resultVariation"
         :easing="wheelData.wheelSettings.easing"
         :counter-clockwise="wheelData.wheelSettings.counterClockwise"

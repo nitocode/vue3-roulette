@@ -16,6 +16,7 @@
         :display-border="wheelSettings.displayBorder"
         :display-indicator="wheelSettings.displayIndicator"
         :duration="wheelSettings.duration"
+        :revolutions="wheelSettings.revolutions"
         :result-variation="wheelSettings.resultVariation"
         :easing="wheelSettings.easing"
         :counter-clockwise="wheelSettings.counterClockwise"
@@ -402,6 +403,7 @@
       displayBorder: false,
       displayIndicator: true,
       duration: 4,
+      revolutions: 3,
       resultVariation: 0,
       easing: "ease",
       counterClockwise: false,
@@ -423,7 +425,8 @@
     if (settings.displayBorder !== defaultSettings.displayBorder) s.db = settings.displayBorder;
     if (settings.displayIndicator !== defaultSettings.displayIndicator) s.di = settings.displayIndicator;
     if (settings.duration !== defaultSettings.duration) s.d = settings.duration;
-    if (settings.resultVariation !== defaultSettings.resultVariation) s.r = settings.resultVariation;
+    if (settings.revolutions !== defaultSettings.revolutions) s.r = settings.revolutions;
+    if (settings.resultVariation !== defaultSettings.resultVariation) s.rv = settings.resultVariation;
     if (settings.easing !== defaultSettings.easing) s.e = settings.easing;
     if (settings.counterClockwise !== defaultSettings.counterClockwise) s.cc = settings.counterClockwise;
     if (settings.horizontalContent !== defaultSettings.horizontalContent) s.hc = settings.horizontalContent;
@@ -450,6 +453,7 @@
       displayBorder: false,
       displayIndicator: true,
       duration: 4,
+      revolutions: 3,
       resultVariation: 0,
       easing: "ease",
       counterClockwise: false,
@@ -490,7 +494,8 @@
     if (s.db !== undefined) config.wheelSettings.displayBorder = s.db;
     if (s.di !== undefined) config.wheelSettings.displayIndicator = s.di;
     if (s.d !== undefined) config.wheelSettings.duration = s.d;
-    if (s.r !== undefined) config.wheelSettings.resultVariation = s.r;
+    if (s.r !== undefined) config.wheelSettings.revolutions = s.r;
+    if (s.rv !== undefined) config.wheelSettings.resultVariation = s.rv;
     if (s.e !== undefined) config.wheelSettings.easing = s.e;
     if (s.cc !== undefined) config.wheelSettings.counterClockwise = s.cc;
     if (s.hc !== undefined) config.wheelSettings.horizontalContent = s.hc;

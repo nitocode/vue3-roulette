@@ -127,6 +127,14 @@ export default defineComponent ({
       required: false,
       default: 4,
     },
+    revolutions: {
+      type: Number,
+      required: false,
+      default: 3,
+      validator(value) {
+        return value > 0;
+      },
+    },
     resultVariation: {
       type: Number,
       required: false,
@@ -183,7 +191,6 @@ export default defineComponent ({
       required: false,
       default: false,
     },
-
     baseBackground: {
       type: String,
       required: false,
@@ -263,7 +270,7 @@ export default defineComponent ({
       this.itemSelected = this.items[wheelResult];
 
       wheelElt.style.transform = `rotate(${
-        this.counterClockWiseOperator * (360 * 3) +
+        this.counterClockWiseOperator * (360 * this.revolutions) +
         -(wheelResult) * this.itemAngle -
         this.itemAngle / 2 +
         this.degreesVariation

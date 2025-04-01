@@ -87,6 +87,7 @@ this.$refs.wheel.reset();
 | size | Number   | no       | 300      |                | size unit: pixel |
 | display-shadow | Boolean   | no       | false      |                |
 | duration       | Number       | no       | 4   | | duration unit: seconds       |                |
+| revolutions       | Number       | no       | 3   | | revolutions unit: times       |                |
 | result-variation | Number    | no       | 0 | number between 0 and 100 | varies the result angle to fake wheel smoothness |
 | easing | String    | no       | "ease"      | "ease" \| "bounce"        | wheel animation |
 | counter-clockwise                   | Boolean      | no       | false  | | rotation direction

@@ -18,6 +18,7 @@ const yesNoData = {
     size: 300,
     displayShadow: true,
     duration: 5,
+    revolutions: 3,
     resultVariation: 95,
     easing: "ease",
     counterClockwise: true,
